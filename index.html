@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>生命的馈赠-蔡涛&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <link rel="icon" href="bitbug_favicon.ico"/>
+    <style>
+        /*css 初始化 */
+        html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+            margin: 0;
+            padding: 0;
+        }
+        /*各浏览器显示不同，去掉边框等默认样式*/
+        fieldset, img, input, button {
+            border: none;
+            padding: 0;
+            margin: 0;
+            outline-style: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        input {
+            padding-top: 0;
+            padding-bottom: 0;
+            font-family: "SimSun", "宋体";
+        }
+
+        select, input, textarea {
+            font-size: 12px;
+            margin: 0;
+        }
+
+        /*防止拖动 影响布局*/
+        textarea {
+            resize: none;
+        }
+
+        /*去掉行内替换元素空白缝隙*/
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        body {
+            font: 12px/150% Arial, Verdana, "\5b8b\4f53"; /*宋体 unicode */
+            color: #666;
+            background: #fff;
+        }
+
+        /*清除浮动*/
+        .clearfix:before, .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1; /*IE/7/6*/
+        }
+
+        a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #C81623;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 100%;
+        }
+
+        /*废物利用*/
+        s, i, em {
+            font-style: normal;
+            text-decoration: none;
+        }
+
+        /*基色*/
+        .col-red {
+            color: #AA0D29 !important;
+        }
+
+        /*公共类*/
+        .w {
+            /*版心 提取 */
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .al {
+            text-align: left;
+        }
+
+        .ac {
+            text-align: center;
+        }
+
+        .ar {
+            text-align: right;
+        }
+
+        .hide {
+            display: none;
+        }
+
+
+        .head {
+            border-top: 6px solid #ccc;
+        }
+
+
+        /*固定定位的表层*/
+        .fix {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+        }
+        .fix ul{
+            position: absolute;
+        }
+
+        .div1 {
+            height: 500px;
+            margin-top: 80px;
+            border-top: 4px solid #c0c0c0;
+            opacity: 0.9;
+            border-left: 4px solid #c0c0c0;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo {
+            float: left;
+            margin-left: 30px;
+            margin-top: 40px;
+        }
+        .logo a{
+            display: inline-block;
+            width: 141px;
+            height: 120px;
+            background: url("images/logo_110833f1.png") ;
+        }
+        .div1 .nav{
+            position: relative;
+            float: right;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        #topnav{
+            width: 800px;
+            height: 100px;
+            position: absolute;
+            left: 0px;
+            top: 5px;
+            background-color: black;
+            opacity: 0;
+            border-radius: 40px 40px 40px 40px;
+        }
+        #topnav li {
+            float: left;
+        }
+        .nav .topnav a{
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .nav .topnav a:hover{
+            background-color: #AA0D29;
+            color: black;
+            font-weight: 800;
+        }
+        .nav .topnav .ccc1:hover{
+            border-radius: 40px 0 0 40px;
+        }
+        .nav .topnav .ccc3:hover{
+            border-radius: 0px 40px 40px 0px;
+        }
+        #footnav{
+            width: 600px;
+            height: 380px;
+            background-color: lightgray;
+            position: absolute;
+            left: 0px;
+            top: 100px;
+            display: none;
+            z-index: 11;
+            border-radius: 80px 80px 80px 80px;
+        }
+        #footnav video{
+            position: absolute;
+            left: 100px;
+            /*border-radius: 80px 80px 80px 80px;*/
+        }
+        .div1 .nav .a{
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+            display: inline-block;
+            width: 100px;
+            height: 110px;
+            background:url("images/btn-menu_08fd03e.png") left no-repeat;
+        }
+        .div1 .nav .a:hover{
+            background:url("images/btn-menu_08fd03e.png") -100px no-repeat;
+        }
+        .div1 .anniu ul{
+            position: absolute;
+            top: 210px;
+            right: 0;
+            z-index: 10;
+        }
+        .div1 .anniu li{
+            margin-bottom: 8px;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #c0c0c0;
+            border-radius: 10px;
+            background-color: white;
+            cursor: pointer;
+        }
+
+
+        .div1 .down {
+            width: 63px;
+            height: 30px;
+            background: url("images/ico-arrow_0550dda.png");
+            position: absolute;
+            bottom: 0;
+            left: 48%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .bg {
+            width: 100%;
+            height: 850px;
+            position: absolute;
+            top: 150px;
+            left: 270px;
+            display: none;
+        }
+        .bg2 {
+            position: absolute;
+            top: 300px;
+            left: 20px;
+            display: none;
+        }
+        .bg3 {
+
+            position: absolute;
+            top: 300px;
+            left: 700px;
+            display: none;
+        }
+        .bg4 {
+
+            position: absolute;
+            top: 350px;
+            left: 270px;
+            display: none;
+        }
+        .bg5 {
+
+            position: absolute;
+            top: 300px;
+            left:800px;
+            display: none;
+        }
+        .bg6 {
+            height: 180px;
+            width: 500px;
+            position: absolute;
+            top: 350px;
+            left: 20px;
+            display: none;
+        }
+        .bg6 .shang{
+            width: 500px;
+            height: 65px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        .bg6 .xia{
+            width: 500px;
+            height: 115px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        .bg6 .xia img{
+            position: absolute;
+            bottom: 0;
+        }
+
+        .bg .left {
+            float: left;
+            opacity: 0;
+        }
+        .bg .right1 {
+            position: absolute;
+            top: 30px;
+            left: 230px;
+        }
+        .bg .right2 {
+            height: 200px;
+            position: absolute;
+            top: 30px;
+            left: 215px;
+            display: none;
+        }
+
+
+
+
+
+
+
+
+
+        #ceng2{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            display: none;
+            background-color: gray;
+        }
+        .close2 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            color: black;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        #ceng2 .shou{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 20px;
+            /*background-color: red;*/
+        }
+        .shou li {
+            float: left;
+            height: 760px;
+            width: 190px;
+            padding-top: 250px;
+            font:700 30px/45px "楷体";
+            text-align: center;
+            color: white;
+        }
+        .shou .li1{
+            background-color: #A90000;
+            opacity: 0.2;
+        }
+        .shou .li2{
+            background-color: orangered;
+            opacity: 0.2;
+        }
+        .shou .li3{
+            background-color: gold;
+            opacity: 0.2;
+        }
+        .shou .li4{
+            background-color: green;
+            opacity: 0.2;
+        }
+        .shou .li5{
+            background-color: teal;
+            opacity: 0.2;
+        }
+        .shou .li6{
+            background-color: deepskyblue;
+            opacity: 0.2;
+            overflow: hidden;
+        }
+        .shou .li7{
+            background-color: mediumpurple;
+            opacity: 0.2;
+        }
+
+
+
+
+        #lunbo {
+            margin-top:-100px;
+            display: none;
+        }
+
+
+        
+
+    </style>
+
+    <script src="common.js"></script>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            $(document.body).css("background","black");
+
+            var pic=0;
+
+            $(window).on("mousewheel DOMMouseScroll", function (e) {
+
+                var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  // chrome & ie
+                        (e.originalEvent.detail && (e.originalEvent.detail > 0 ? -1 : 1));              // firefox
+
+
+                if (delta > 0) {
+
+                    // 向上滚
+                    if(pic>0){
+                        pic--;
+                        $("#anniu li").eq(pic).trigger("click");
+                    }else{
+                        pic=0;
+                    }
+
+
+                } else if (delta < 0) {
+
+                    // 向下滚
+                    if(pic<5){
+                        pic++;
+                        $("#anniu li").eq(pic).trigger("click");
+                    }else{
+                        pic=5;
+                    }
+
+                }
+            });
+
+            var video = $('video');
+
+            video.hover(function(){
+
+                video[0].play() // play() 和 pause() 是HTML5中video自带的API函数，哈哈，方便吧？
+
+            },function(){
+
+                video[0].pause()
+
+            });
+
+            var flag=true;
+            $(".logo").click(function(){
+                if(flag){
+                    $("audio").get(0).pause();
+                    flag=false;
+                }else{
+                    $("audio").get(0).play();
+                    flag=true;
+                }
+
+            });
+
+
+            $(".nav .a").click(function(){
+                $("audio").get(0).pause();
+                if($("#topnav").css("opacity")==0){
+                    $("#topnav").stop().animate({"left":"-800","opacity":1},1000,function(){
+                        $("#footnav").stop().animate({"width":"600"},0,function(){
+                            $("#footnav").slideDown(1000,function(){
+
+                                $("#footnav").stop().animate({"width":"800"},500);
+                            });
+                        });
+
+                    });
+                }else{
+                    $("#footnav").slideUp(500,function(){
+                        $("#topnav").stop().animate({"left":"0px","opacity":0},1000,function(){
+                            $("audio").get(0).play();
+                        });
+                    });
+                }
+
+                return false;
+            });
+
+
+
+
+
+
+            setInterval(function(){
+                document.title=document.title.substr(1)+document.title.charAt(0);
+            },500)
+
+            var imgHeight=850;
+
+
+            $("#anniu li:eq(0)").click(function(){
+                $("#bgimg img").stop().animate({"width":"1450","height":"850"},0);
+                $("#bgimg>ul").stop().animate({"top":-$(this).index()*imgHeight});
+
+                $(this).css("background","#AA0D29").siblings().css("background","white");
+                $("#bg").css("display","block").stop().animate({"top":"-300"},0,function(){
+                    $("#bg").stop().animate({"top":"150"},1000,function(){
+
+                        $("#bgimg img:eq(0)").stop().animate({"width":"1550","height":"900"},3000);
+
+                        $("#bg .left").animate({"opacity":1},400,function(){
+                            $("#bg .left").animate({"opacity":0},400,function(){
+                                $("#bg .left").animate({"opacity":1},400,function(){
+                                    $("#bg .left").animate({"opacity":0.2},400,function(){
+                                        $("#bg .left").animate({"opacity":1},400,function(){
+                                            $("#bg .left").animate({"opacity":0.4},400,function(){
+                                                $("#bg .left").animate({"opacity":1},400);
+                                            });
+                                        });
+                                    });
+                                });
+                            })
+                        });
+
+                        $("#bg .right1").animate({"opacity":0},300,function(){
+
+                            $("#bg .right1").animate({"opacity":1},300,function(){
+                                $("#bg .right1").animate({"opacity":0.2},300,function(){
+                                    $("#bg .right1").animate({"opacity":1},300,function(){
+                                        $("#bg .right1").animate({"opacity":0.4},300,function(){
+                                            $("#bg .right1").animate({"opacity":1},300);
+                                        });
+                                    });
+                                });
+                            });
+                        });
+
+
+                        $("#bg .right2").slideDown(5000);
+                    });
+                }).siblings().css("display","none");
+                pic=$(this).index();
+            });
+
+
+            $("#anniu li:eq(1)").click(function(){
+                $("#bgimg img").stop().animate({"width":"1450","height":"850"},0,function(){
+                    $("#bgimg img:eq(1)").stop().animate({"width":"1500","height":"900"},3000);
+                });
+
+                $("#bg2 img").stop().animate({"height":"337"},0);
+                $("#bgimg>ul").stop().animate({"top":-$(this).index()*imgHeight});
+                $(this).css("background","#AA0D29").siblings().css("background","white");
+                $("#bg2").css("display","block").stop().animate({"top":"-300"},0,function(){
+                    $("#bg2 img").stop().animate({"height":"200"},1000);
+                    $("#bg2").stop().animate({"top":"300"},1000);
+                    $("#bg").stop().animate({"top":"-300"},1000);
+                }).siblings().css("display","none");
+                pic=$(this).index();
+            });
+
+            $("#anniu li:eq(2)").click(function(){
+                $("#bgimg img").stop().animate({"width":"1450","height":"850"},0,function(){
+                    $("#bgimg img:eq(2)").stop().animate({"width":"1500","height":"900"},3000);
+                });
+                $("#bg3 img").stop().animate({"height":"400","width":"650"},0);
+                $("#bgimg>ul").stop().animate({"top":-$(this).index()*imgHeight});
+                $(this).css("background","#AA0D29").siblings().css("background","white");
+                $("#bg3").css("display","block").stop().animate({"left":"-500","top":"10"},0,function(){
+                    $("#bg3 img").stop().animate({"height":"200","width":"350"},1000);
+                    $("#bg3").stop().animate({"left":"700","top":"300"},1000);
+                }).siblings().css("display","none");
+                pic=$(this).index();
+            });
+
+
+            $("#anniu li:eq(3)").click(function(){
+                $("#bgimg img").stop().animate({"width":"1450","height":"850"},0,function(){
+                    $("#bgimg img:eq(3)").stop().animate({"width":"1500","height":"900"},3000);
+                });
+                $("#bg4 img").stop().animate({"height":"400","width":"650"},0);
+                $("#bgimg>ul").stop().animate({"top":-$(this).index()*imgHeight});
+                $("#anniu li:eq(3)").css("background","#AA0D29").siblings().css("background","white");
+                $("#bg4").css("display","block").stop().animate({"left":"500","top":"10"},0,function(){
+                    $("#bg4 img").stop().animate({"height":"100","width":"300"},1000);
+                    $("#bg4").stop().animate({"left":"20","top":"390"},1000);
+                }).siblings().css("display","none");
+                pic=$(this).index();
+            });
+
+
+            $("#anniu li:eq(4)").click(function(){
+                $("#bgimg img").stop().animate({"width":"1450","height":"850"},0,function(){
+                    $("#bgimg img:eq(4)").stop().animate({"width":"1500","height":"900"},3000);
+                });
+                $("#bg5 img").stop().animate({"height":"400","width":"650"},0);
+                $("#bgimg>ul").stop().animate({"top":-$(this).index()*imgHeight});
+                $(this).css("background","#AA0D29").siblings().css("background","white");
+                $("#bg5").css("display","block").stop().animate({"left":"200","top":"10"},0,function(){
+                    $("#bg5 img").stop().animate({"height":"10","width":"20"},1000,function(){
+                        $("#bg5 img").stop().animate({"height":"180","width":"300"},1000);
+                    });
+                    $("#bg5").stop().animate({"left":"20","top":"300"},1000);
+                }).siblings().css("display","none");
+                pic=$(this).index();
+            });
+
+
+
+            $("#anniu li:eq(5)").click(function(){
+                $("#bgimg img").stop().animate({"width":"1450","height":"850"},0);
+                $("#bg6 img").stop().animate({"height":"500","width":"650"},0);
+                $("#bgimg>ul").stop().animate({"top":-$(this).index()*imgHeight});
+                $(this).css("background","#AA0D29").siblings().css("background","white");
+                $("#bg6").css("display","block").stop().animate({"left":"200","top":"10"},0,function(){
+                        $("#bg6 img").stop().animate({"height":"180","width":"500"},1000);
+                    $("#bg6").stop().animate({"left":"300","top":"150"},1000,function(){
+                        $("#bg6").stop().animate({"left":"20","top":"300"},3000);
+                    });
+                }).siblings().css("display","none");
+                pic=$(this).index();
+            });
+
+
+
+
+
+
+            bgmove();
+            $("#anniu li:eq(0)").css("background","#AA0D29");
+            function bgmove(){
+
+                $("#bgimg img:eq(0)").stop().animate({"width":"1550","height":"900"},3000);
+                $("#bg").show(2000);
+                $("#bg .left").animate({"opacity":1},400,function(){
+                    $("#bg .left").animate({"opacity":0},400,function(){
+                        $("#bg .left").animate({"opacity":1},400,function(){
+                            $("#bg .left").animate({"opacity":0.2},400,function(){
+                                $("#bg .left").animate({"opacity":1},400,function(){
+                                    $("#bg .left").animate({"opacity":0.4},400,function(){
+                                        $("#bg .left").animate({"opacity":1},400);
+                                    });
+                                });
+                            });
+                        });
+                    })
+                });
+
+                $("#bg .right1").animate({"opacity":0},300,function(){
+
+                    $("#bg .right1").animate({"opacity":1},300,function(){
+                        $("#bg .right1").animate({"opacity":0.2},300,function(){
+                            $("#bg .right1").animate({"opacity":1},300,function(){
+                                $("#bg .right1").animate({"opacity":0.4},300,function(){
+                                    $("#bg .right1").animate({"opacity":1},300);
+                                });
+                            });
+                        });
+                    });
+                });
+
+
+                $("#bg .right2").slideDown(3000);
+            }
+
+
+
+
+
+
+            $(".down").click(function(){
+                $(".fix").animate({"opacity":0.3},1500,function(){
+                    $(".fix").hide(0);
+                });
+                $(document.body).animate({"opacity":0.2},1500);
+                $(".div1").animate({"opacity":0.3},1500,function(){
+                    $(".div1").hide(0);
+                    $("audio").get(0).pause();
+                    $("#ceng2").slideDown(1000,function(){
+                        $(document.body).animate({"opacity":1},500,function(){
+                            $(".shou li").animate({"opacity":1},3500,function(){
+                                $(".shou li").mouseover(function () {
+
+                                    $(this).stop().animate({"width": "800px"}, 500)
+                                            .siblings().stop().animate({"width": "80px"},500);
+                                });
+                                $(".shou li").mouseleave(function () {
+                                    $(".shou li").stop().animate({width: "190px"}, 500);
+                                });
+
+
+
+                                $(".shou li:eq(5)").mouseover(function () {
+                                    $("#lunbo").stop(false,true).show();
+                                    $(this).stop().animate({"width": "800px"}, 500)
+                                            .siblings().stop().animate({"width": "80px"},500);
+                                });
+                                $(".shou li:eq(5)").mouseleave(function () {
+                                    $("#lunbo").hide(1000);
+                                    $(".shou li").stop().animate({width: "190px"}, 500);
+                                });
+
+
+                            });
+                        });
+                    });
+                });
+
+
+
+            });
+
+            $(".close2").click(function(){
+                $("#ceng2").slideUp(1000,function(){
+                    $(".fix").show(0,function(){
+                        $(".fix").animate({"opacity":1},1000);
+                    });
+                    $(".div1").show(0,function(){
+                        $(".div1").animate({"opacity":1},1000,function(){
+                            $("audio").get(0).play();
+                        });
+                    })
+                });
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+        });
+    </script>
+
+</head>
+<body>
+    <audio src="radio/ball.mp3" autoplay></audio>
+    <div class="fix">
+        <div id="bgimg">
+            <ul>
+            <li><img src="images/5.jpg" width="1450" height="850"/></li>
+            <li><img src="images/6.jpg" width="1450" height="850"/></li>
+            <li><img src="images/7.jpg" width="1450" height="850"/></li>
+            <li><img src="images/8.jpg" width="1450" height="850"/></li>
+            <li><img src="images/9.jpg" width="1450" height="850"/></li>
+            <li><img src="images/10.jpg" width="1450" height="850"/></li>
+            </ul>
+        </div>
+    </div>
+
+<div class="w div1">
+    <div class="logo">
+        <a href="#"></a>
+    </div>
+    <div class="nav">
+        <div class="a"></div>
+        <div class="topnav" id="topnav">
+            <ul>
+                <li><a href="#" class="ccc1">返回首页</a></li>
+                <li><a href="#">最美的时刻</a></li>
+                <li><a href="#">客服中心</a></li>
+                <li><a href="#" class="ccc3">关于Darry</a></li>
+            </ul>
+            <div id="footnav">
+                <video src="radio/1v.mp4" width="600" height="380"></video>
+            </div>
+        </div>
+    </div>
+
+    <div class="anniu" id="anniu">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <div class="down">
+        <a href="#"></a>
+    </div>
+
+<div>
+    <div class="bg" id="bg">
+        <div class="left"><img src="images/title-font-1_90d25aa.png" alt=""/></div>
+        <div class="right1"><img src="images/title-font-2_3be9b12.png" alt=""/></div>
+        <div class="right2"><img src="images/title-font-3_bb665a7.png" alt=""/></div>
+    </div>
+    <div class="bg2" id="bg2">
+        <div><img src="images/screen-2.png" alt="" /></div>
+    </div>
+    <div class="bg3" id="bg3">
+        <div><img src="images/screen-3.png" alt="" height="200"/></div>
+    </div>
+    <div class="bg4" id="bg4">
+        <div><img src="images/screen-4.png" alt="" height="150"/></div>
+    </div>
+    <div class="bg5" id="bg5">
+        <div><img src="images/screen-5.png" alt="" height="200"/></div>
+    </div>
+    <div class="bg6" id="bg6">
+        <!--<img src="images/screen-60.png" alt=""/>-->
+        <div class="shang"><img src="images/screen-6.png" alt="" width="500" height="180"/></div>
+        <div class="xia"><img src="images/screen-6.png" alt="" width="500" height="180"/></div>
+    </div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<div id="ceng2">
+    <div class="close2">X</div>
+
+    <div class="shou">
+        <ul>
+            <li class="li1">婚礼誓言一
+                男：对于世界而言，你是一个人；但是对于我而言，你是我的整个世界，愿和你执子之手，与子偕老。
+                女：你是深蓝色的大海，涌向我，梦境都打开，我迫不及待，生命有了主宰，心跳有新的节拍，你是我唯一色彩，愿和你执子之手，与子偕老。</li>
+            <li class="li2">&nbsp;&nbsp;婚礼誓言二
+                男：亲爱的，我虽没有腰缠万贯，但我有一颗至诚至真的心来呵护你的一生。
+                女：亲爱的，我虽不是天使仙女，但我会毕生的精力来照顾你的一生。</li>
+            <li class="li3">用你来衡量时间，有你的都是白天，失去你就来临黑夜；用你来区分地点，有你的就是天堂，没有你就坠身地狱。亲爱的，愿我们相守永远，真情不变。</li>
+            <li class="li4">&nbsp;&nbsp;婚礼誓言三
+                男：宝贝你的出现让我本来的人生剧本从庸俗的生活剧变成了灿烂夺目的喜剧，我会尽更大努力演绎出更多璀璨的浪漫剧情。
+                女：喜欢庸俗的生活剧，因为它让人感动；喜欢灿烂夺目的喜剧，因为它让人欢乐；更喜欢璀璨的浪漫剧，因为它让人甜蜜。&nbsp;</li>
+            <li class="li5">
+                <img src="images/3.gif" alt=""/>
+            </li>
+            <li class="li6">
+                <div id="lunbo">
+                    <img src="dimg/66.gif" alt="" width="600" height="400"/>
+                </div>
+            </li>
+            <li class="li7">今天我要对世界上最美的你说：我永远爱你！I'll love you forever.</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
